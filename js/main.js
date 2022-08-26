@@ -63,30 +63,32 @@
         
         // for each driver in the drivers data, create a new row in there with the info
         // position, points, driver name, driver nationality, constructor name
-        for (driver in driversData.StandingsLists[0].DriverStandings){
+        //driversData = data['MRData']['StandingsTable']
+        drivers = driversData.StandingsLists[0].DriverStandings
+        for (driver in drivers){
             let tr = document.createElement('tr')
             
             // position
             let thPos = document.createElement('th')
             thPos.scope = 'row'
-            thPos.innerHTML = driversData.StandingsLists[0].DriverStandings[driver].position
+            thPos.innerHTML = drivers[driver].position
             // th.innerHTML = driver
             
             // points
             let tdPoints = document.createElement('td')
-            tdPoints.innerHTML = driversData.StandingsLists[0].DriverStandings[driver].points
+            tdPoints.innerHTML = drivers[driver].points
             
             // driver name
             let tdName = document.createElement('td')
-            tdName.innerHTML = `${driversData.StandingsLists[0].DriverStandings[driver].Driver.givenName} ${driversData.StandingsLists[0].DriverStandings[driver].Driver.familyName}`
+            tdName.innerHTML = `${drivers[driver].Driver.givenName} ${drivers[driver].Driver.familyName}`
             
             // driver nationality
             let tdNationality = document.createElement('td')
-            tdNationality.innerHTML = driversData.StandingsLists[0].DriverStandings[driver].Driver.nationality
+            tdNationality.innerHTML = drivers[driver].Driver.nationality
             
             // constructor name
             let tdConstr = document.createElement('td')
-            tdConstr.innerHTML = driversData.StandingsLists[0].DriverStandings[driver].Constructors[0].name
+            tdConstr.innerHTML = drivers[driver].Constructors[0].name
             
             
             // put all the stuff inside the stuff, and put that stuff inside the other stuff
