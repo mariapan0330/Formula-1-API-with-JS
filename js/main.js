@@ -14,15 +14,15 @@
         let driversData = await getSeasonRoundInfo(seasonInput, roundInput)
         seasonInput.value = ''
         roundInput.value = ''
-        console.log('DRIVERS DATA FROM SUBMIT',driversData);
+        console.log('DRIVERS DATA FROM SUBMIT', driversData);
         
-        buildDriverTable(driversData) // BOOKMARK - uncomment this when buildDriverTable works
+        buildDriverTable(driversData)
     }
 
     async function getSeasonRoundInfo(season, round) {
         console.log('Getting Season Round Info...');
-        let res = await fetch(`https://ergast.com/api/f1/${season}/${round}/driverStandings.json`)
-        let data = await res.json()
+        let res = await fetch(`https://ergast.com/api/f1/${season}/${round}/driverStandings.json`);
+        let data = await res.json();
         // console.log('DATA!!!!!', data['MRData']['StandingsTable'])
         return data['MRData']['StandingsTable']
     }
@@ -63,7 +63,7 @@
         
         // for each driver in the drivers data, create a new row in there with the info
         // position, points, driver name, driver nationality, constructor name
-        for (driver in driversData.StandingsLists[0].DriverStandings){ // BOOKMARK - change this
+        for (driver in driversData.StandingsLists[0].DriverStandings){
             let tr = document.createElement('tr')
             
             // position
